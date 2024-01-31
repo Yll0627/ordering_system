@@ -8,25 +8,30 @@ const model = {
     currentDishId: null,  // null means "intentionally empty"
 
     setCurrentDishId(dishId){
-        // this.someProperty= someValue
+        this.currentDishId = dishId;
     },
     
     setNumberOfGuests(number){
-
+        if (!Number.isInteger(number) || number <= 0) {
+            throw new Error("number of guests not a positive integer");
+        }
+        this.numberOfGuests = number;
     },
     
     addToMenu(dishToAdd){
         // array spread syntax example. Make sure you understand the code below.
         // It sets this.dishes to a new array [   ] where we spread (...) the elements of the existing this.dishes
-        this.dishes= [...this.dishes, dishToAdd];
+        this.dishes = [...this.dishes, dishToAdd];
     },
 
     // filter callback exercise
     removeFromMenu(dishToRemove){
-        function shouldWeKeepDishCB(dish){
-
+        
+        function shouldWeKeepDishCB(dish) {
+            return dish.id !== dishToRemove.id;
         }
-        this.dishes= this.dishes.filter(/* pass the callback */);
+    
+        this.dishes = this.dishes.filter(shouldWeKeepDishCB);
     },
     
  
