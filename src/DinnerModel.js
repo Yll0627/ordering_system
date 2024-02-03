@@ -2,13 +2,28 @@
    The Model keeps the state of the application (Application State). 
    It is an abstract object, i.e. it knows nothing about graphics and interaction.
 */
+
+import resolvePromise from "./resolvePromise.js";
+import { searchDishes,getDishDetails } from "./dishSource.js";
+
 const model = {  
+
     numberOfGuests: 2,
     dishes: [],
     currentDishId: null,  // null means "intentionally empty"
+    searchParams: {},
+    searchResultsPromiseState: {},
+    currentDishPromiseState:{},
+
+
 
     setCurrentDishId(dishId){
-        this.currentDishId = dishId;
+        if (dishId && this.currentDishId !== dishId) {
+            this.currentDishId = dishId;
+            const dishDetailsPromise = getDishDetails(dishId);
+            this.currentDishPromiseState.promise = dishDetailsPromise;
+            resolvePromise(dishDetailsPromise, this.currentDishPromiseState);
+        }
     },
     
     setNumberOfGuests(number){
@@ -17,6 +32,8 @@ const model = {
         }
         this.numberOfGuests = number;
     },
+
+
     
     addToMenu(dishToAdd){
         // array spread syntax example. Make sure you understand the code below.
@@ -33,8 +50,37 @@ const model = {
     
         this.dishes = this.dishes.filter(shouldWeKeepDishCB);
     },
+
+
+
+    setCurrentDish(id){
+
+        if (id !== undefined && this.currentDish !== id) {
+            if (this.currentDish === id) {
+                return;
+            }
+            this.currentDish = id;
+            resolvePromise(getDishDetails(this.currentDish), this.currentDishPromiseState);
+        }
+    },
     
+
+    setSearchQuery(query){
+        this.searchParams.query = query 
+    },
+    
+    setSearchType(type){
+        this.searchParams.type = type
+    },
  
+
+    doSearch(params){
+        
+        this.searchParams = params;
+        const searchPromise = searchDishes(this.searchParams);
+        this.searchResultsPromiseState.promise = searchPromise;
+        resolvePromise(searchPromise, this.searchResultsPromiseState);
+    }
     // more methods will be added here, don't forget to separate them with comma!
 };
 
