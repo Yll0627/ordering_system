@@ -41,3 +41,39 @@ export function SearchFormView(props) {
         window.location.hash="#summary"
     }
 }
+
+
+/* yueling TW2.2.1
+export function SearchFormView(props){
+    
+    return(
+        <div className="formContent">
+            <input type="text"  onChange={inputTextACB} value={props.text || ""}/>
+
+            <select className="select" onChange={theSelectACB} value={props.type || ""}>
+                <option value="">Choose:</option>
+                {props.dishTypeOptions.map(dishTypeOptionsCB)}
+            </select>
+            
+            <button onClick={clicktoSearch}>Search</button>
+
+        </div>  
+    )
+
+    function inputTextACB(event){
+        props.theInputText(event.target.value)
+    }
+    function theSelectACB(event){
+        props.selectOption(event.target.value)
+    }
+
+    function dishTypeOptionsCB(typeOptions){
+        return( <option  key={typeOptions} value={typeOptions}>{typeOptions}</option>)
+    }
+
+    function clicktoSearch(){
+        props.starttoSearch()
+    }
+    
+}
+*/

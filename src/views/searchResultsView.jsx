@@ -2,7 +2,6 @@ export function SearchResultsView(props) {
     
     
 
-
     function returnResultsCB(dish) {
     
         function searchResultACB() {
@@ -25,3 +24,34 @@ export function SearchResultsView(props) {
      );
     
     }
+
+
+
+    /* yueling TW2.2.2
+
+    import "/src/style.css"
+
+export function SearchResultsView(props) {
+    return(
+        <div>
+              {props.searchResults.map(dishRenderACB)}
+        </div>
+    )
+    function dishRenderACB(dish){
+        return(
+            <span key={dish.id} className="imageRender" onClick={checkDetailClickACB}>
+                <img className="imageArray" src={dish.image} height='100'></img>
+                <div className="alignCenter">{dish.title}</div>
+
+            </span>
+
+        )
+
+        function checkDetailClickACB(){
+            props.searchDetail(dish);
+        }
+        
+    }    
+
+}
+*/
