@@ -1,9 +1,9 @@
 import {SidebarView} from "../views/sidebarView.jsx";
+import { observer } from "mobx-react-lite";
 
 
+const Sidebar = observer(
 function Sidebar(props){
-
-
 
 
 
@@ -25,5 +25,6 @@ function Sidebar(props){
     DishRemove={dishRemoveACB}
     DishClick={dishClickACB} />;
 }
+)
 
 export { Sidebar }

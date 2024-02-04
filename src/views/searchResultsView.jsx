@@ -1,3 +1,5 @@
+
+import "/Users/fanfan6027/Documents/GitHub/yueling-zhikun-vt24-2-and-3/src/style.css"
 export function SearchResultsView(props) {
     
     
@@ -10,9 +12,9 @@ export function SearchResultsView(props) {
         }
         return(
             <span onClick={searchResultACB} key = {dish.id} className="searchResult">
-                    <img src={dish.image} height="100"></img>
+                    <img className="imageArray" src={dish.image} height="100"></img>
                     <div>
-                        {dish.title}
+                    <div className="alignCenter">{dish.title}</div>
                     </div>
                 </span>
         )

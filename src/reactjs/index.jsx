@@ -1,5 +1,6 @@
 import "/src/teacherFetch.js"; // protection against fetch() in infinite re-render
-
+//import React from "react";
+import "/Users/fanfan6027/Documents/GitHub/yueling-zhikun-vt24-2-and-3/src/style.css"
 // (1) ------------ application state (model) -----------
 import { model } from '/src/DinnerModel.js';
 
@@ -21,7 +22,7 @@ import { createRoot } from "react-dom/client";
 import { ReactRoot } from "./ReactRoot.jsx";
 
 createRoot(document.getElementById('root'))
-    .render(<ReactRoot model={model}/>);  // mounts the app in the page DIV with the id "root"
+    .render(<ReactRoot model={reactiveModel}/>);  // mounts the app in the page DIV with the id "root"
 // to see the DIV, look at react.html in the developer tools Sources
 // react.html, with the content <div id="root"></div> is configured in vite.config.js
 

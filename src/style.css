@@ -7,3 +7,20 @@
 .align-right {
     text-align: right;
 }
+
+
+
+.searchResult{
+    text-align: center;
+    display:block;
+
+}
+
+.imageArray{
+    vertical-align:top;
+    width:160px; 
+}
+
+.alignCenter{
+    text-align: center;
+}
