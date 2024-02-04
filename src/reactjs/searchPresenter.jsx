@@ -1,7 +1,8 @@
 import { SearchResultsView } from "../views/searchResultsView.jsx";
 import { SearchFormView } from "../views/searchFormView.jsx";
+import { observer } from "mobx-react-lite";
 
-
+const Search = observer(
 function Search(props) {
 
 
@@ -62,5 +63,6 @@ function Search(props) {
         </div>
     );
 }
+)
 
 export { Search };
