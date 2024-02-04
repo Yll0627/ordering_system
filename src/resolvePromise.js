@@ -12,9 +12,8 @@ export function resolvePromise(prms, promiseState){
 
     }
 
-
     function errorACB(err) {
-        if(promiseState.promise !== prms) { //Return om promise ändrats
+        if(promiseState.promise !== prms) { 
             return;
         }
         promiseState.error = err; 
