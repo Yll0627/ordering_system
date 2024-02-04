@@ -8,8 +8,6 @@
     text-align: right;
 }
 
-
-
 .searchResult{
     text-align: center;
     display:block;
@@ -23,4 +21,23 @@
 
 .alignCenter{
     text-align: center;
+}
+
+.ingrTable{
+    text-align: center;
+    border: 1px solid;
+    width:556px;
+    margin-top: 20px;
+    margin-bottom: 20px; 
+    th,td{
+        text-align: center;
+        border: 1px solid;
+        width: 556px;
+    }
+}
+
+
+.info{
+    max-width: 556px;
+    text-align:justify;
 }
