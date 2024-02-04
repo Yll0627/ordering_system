@@ -1,7 +1,8 @@
 import { DetailsView } from "../views/detailsView.jsx";
+import { observer } from "mobx-react-lite";
 
-
-function Details(props) {
+const Details = observer( 
+    function Details(props) {
 
     function isDishInMenu(currentDish) {
         return !!props.model.dishes.find(dish => dish.id === currentDish.id);
@@ -46,6 +47,7 @@ function Details(props) {
                 />
             );
         }
+
         
 
         return <div>Unexpected state</div>;
@@ -54,6 +56,9 @@ function Details(props) {
 
     return renderBasedOnPromiseState(props.model.currentDishPromiseState);
 }
+)
+
 
 export { Details };
+
 
