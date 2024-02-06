@@ -1,4 +1,4 @@
-import "/Users/fanfan6027/Documents/GitHub/yueling-zhikun-vt24-2-and-3/src/style.css"
+import "/src/style.css"
 export function DetailsView(props) {
 
     function ingredientsDetail(ingredient){

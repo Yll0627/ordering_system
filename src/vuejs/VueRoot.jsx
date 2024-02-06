@@ -1,7 +1,7 @@
 import { Summary }  from "./summaryPresenter.jsx";
 import { Sidebar }  from "./sidebarPresenter.jsx";
-import {Search} from "/Users/fanfan6027/Documents/GitHub/yueling-zhikun-vt24-2-and-3/src/vuejs/searchPresenter.jsx"
-import {Details} from "/Users/fanfan6027/Documents/GitHub/yueling-zhikun-vt24-2-and-3/src/vuejs/detailsPresenter.jsx"
+import {Search} from "./searchPresenter.jsx"
+import {Details} from "./detailsPresenter.jsx"
 
 function VueRoot(props){
     return (<div>

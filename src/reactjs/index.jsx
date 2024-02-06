@@ -1,6 +1,6 @@
 import "/src/teacherFetch.js"; // protection against fetch() in infinite re-render
 //import React from "react";
-import "/Users/fanfan6027/Documents/GitHub/yueling-zhikun-vt24-2-and-3/src/style.css"
+import "/src/style.css"
 // (1) ------------ application state (model) -----------
 import { model } from '/src/DinnerModel.js';
 

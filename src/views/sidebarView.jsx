@@ -1,5 +1,5 @@
 import {dishType, menuPrice, sortDishes} from "/src/utilities.js";
-import "/Users/fanfan6027/Documents/GitHub/yueling-zhikun-vt24-2-and-3/src/style.css"
+import "/src/style.css"
 
 export function SidebarView(props){
 
