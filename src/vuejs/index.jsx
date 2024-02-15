@@ -2,8 +2,8 @@ import "/src/teacherFetch.js"; // protection against fetch() in infinite re-rend
 
 // (1) ------------ application state (model) -----------
 import { model } from "/src/DinnerModel.js";
+import{ makeRouter } from "/src/vuejs/VueRoot.jsx"
 
-// uncomment to make the app update when the model changes.
 
 import { reactive } from "vue";
 const reactiveModel= reactive(model);
@@ -20,7 +20,9 @@ window.React= {createElement:h};  // needed in the lab because it works with bot
 import { VueRoot } from "./VueRoot.jsx";
 const app= createApp(<VueRoot model={reactiveModel} />);
 
+const router = makeRouter(reactiveModel); 
 
+app.use(router);
 app.mount('#root'); // mounts the app in the page DIV with the id "root"
 // to see the DIV, look at vue.html in the developer tools Sources
 // vue.html, with the content <div id="root"></div> is configured in vite.config.js

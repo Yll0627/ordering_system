@@ -10,7 +10,7 @@ export function SummaryView(props){
 
             
               
-              <table>
+              <table class="summeryTable">
                   {  //  <---- in JSX/HTML, with this curly brace, we go back to JavaScript, and make a comment
                    
 

@@ -1,5 +1,4 @@
 import "/src/teacherFetch.js"; // protection against fetch() in infinite re-render
-//import React from "react";
 import "/src/style.css"
 // (1) ------------ application state (model) -----------
 import { model } from '/src/DinnerModel.js';

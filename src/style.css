@@ -1,7 +1,7 @@
 
 /* A debug class, used to separate components graphically during development */
 .debug {
-    border-style:solid;
+    padding: 3px;
 }
 
 .align-right {
@@ -19,25 +19,95 @@
     width:160px; 
 }
 
+
 .alignCenter{
+    display: block;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.alignLeft{
+    text-align: left;
 }
 
-.ingrTable{
-    text-align: center;
+.summeryTable{
     border: 1px solid;
     width:556px;
     margin-top: 20px;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
     th,td{
         text-align: center;
-        border: 1px solid;
-        width: 556px;
     }
 }
 
+.ingrTable{
+    border: 1px solid;
+    width:556px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px; 
+    th,td{
+        text-align: center;
+        border: 1px solid; 
+    }
+}
+
+.flexParent{ 
+    display:flex;
+    flex-direction:row;
+    margin: 8px;
+}
+
+
+.sidebar{
+    flex:0.2;
+    margin-right: 6px;
+    padding: 6px;
+    border-style: solid;
+    background-color:rgb(220, 220, 220);
+}
+
+.mainContent{
+    flex:0.8;
+    display:flex;
+    flex-direction:column;
+    width: 100%;
+    justify-content: center;
+    border-style: solid; 
+}
+
+.imageDetail{
+    width: 560px;  
+     
+  }
 
 .info{
     max-width: 556px;
-    text-align:justify;
+    margin-left: auto;
+    text-align: justify;
+    margin-right: auto;
+}
+
+.button{
+    margin-right: 12px;
+}
+
+
+@media (max-width: 800px) {
+    .flexParent{ 
+        display:block;
+        margin: 8px; 
+    }
+    .sidebar{
+        margin: 0px;
+    }
+    .mainContent{
+        display: block;
+        width: auto;
+    }
 }

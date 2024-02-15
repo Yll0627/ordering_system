@@ -17,7 +17,7 @@ export function DetailsView(props) {
 
     function dishDataCB(props){
         return(
-            <div>
+            <div class="align-right">
                 <th>Price: {props.dishData.pricePerServing} </th> 
             <div>
                 <th> For {props.guests} guests: {(props.guests * props.dishData.pricePerServing).toFixed(2)}</th>
@@ -39,32 +39,36 @@ export function DetailsView(props) {
     return(
         
 
-        <div>
-        <img class = "image" src={props.dishData.image}></img>
-        <h2>{props.dishData.title}</h2>
-        {dishDataCB(props)} 
+        <div class="alignCenter">
+            <div>
+                <img class = "imageDetail" src={props.dishData.image}></img>
+                <h2>{props.dishData.title}</h2>
+                {dishDataCB(props)} 
+            </div>
         
-        <div>
-        <table class="ingrTable">
-            <thead>
-            <tr>
-                <th>Ingredient</th>
-                <th>Amount</th>
-                <th>Unit</th>
-            </tr>
-            </thead>
-            <tbody>
-                {props.dishData.extendedIngredients.map(ingredientsDetail)}
-            </tbody>
-        </table>
-        </div>
+            <div>
+            <table class="ingrTable">
+                <thead>
+                <tr>
+                    <th>Ingredient</th>
+                    <th>Amount</th>
+                    <th>Unit</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {props.dishData.extendedIngredients.map(ingredientsDetail)}
+                </tbody>
+            </table>
+            </div>
 
-        
-        <div  class="info" >{props.dishData.instructions}</div>
+        <div  class="info" >
+        <div>{props.dishData.instructions}</div>
         <span ><a href={props.dishData.sourceUrl}> More information</a></span>
-        <div>
-        <button class="button" disabled = {props.isDishInMenu} onClick = {addMenuACB}>Add to menu</button>
-        <button class="button" onClick = {cancelACB}>Cancel</button>
+            <p></p>
+            <div>
+            <button class="button" disabled = {props.isDishInMenu} onClick = {addMenuACB}>Add to menu</button>
+            <button class="button" onClick = {cancelACB}>Cancel</button>
+            </div>
         </div>
        
     </div>
