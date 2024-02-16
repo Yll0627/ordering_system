@@ -4,9 +4,13 @@ import "/src/style.css"
 
 /* Functional JSX component. Name must start with capital letter */
 export function SummaryView(props){
+  function backToSearchACB(){
+    window.location.hash="#/search";
+  }
     return (
             <div class="debug">
               Summary for <span title="nr guests">{props.people}</span> persons:
+              <button onClick={backToSearchACB} className="backToSearchButton">Back To Search</button>
 
             
               

@@ -7,22 +7,35 @@ import "/src/style.css"
 import { createHashRouter, RouterProvider } from 'react-router-dom';
 
 
+        
+    
 const ReactRoot = observer(   //  will be added in week 3
 function ReactRoot(props){
 
-    function theRouter(model){
-        const router=  createHashRouter([
-            {path: "/", element: <Search model={model} />,},
-            {path: "/search", element: <Search model={model} />,},
-            {path: "/summary", element: <Summary model={model} />,},
-            {path:"/details", element: <Details model={model} />},
-        ])
-        return router;
-        }
-    
+    const router= createHashRouter([
+        {
+            path: "/", 
+            element: <Search model={props.model} />,
+        },
+        {
+            path: "/search", 
+            element: <Search model={props.model} />,
+        },
+        {
+            path: "/summary", 
+            element: <Summary model={props.model} />,
+        },
+        {
+            path:"/details", 
+            element: <Details model={props.model} />,
+        },
+       
+        ])   
+        
+
     return (<div class="flexParent">
                 <div class="sidebar"><Sidebar model={props.model} /></div>
-                <div class="mainContent"><RouterProvider router={theRouter(props.model)} /></div>
+                <div class="mainContent"><RouterProvider router={router} /></div>
             </div>
            );
 }

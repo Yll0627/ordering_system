@@ -43,7 +43,7 @@ export function SidebarView(props){
 
         return <tr key={dish.id}>
         <td><button onClick={RemoveDishACB}>x</button></td>
-        <td> <a onClick={DishNameClickACB} href="#">{dish.title}</a></td> 
+        <td> <a onClick={DishNameClickACB} href="#/details">{dish.title}</a></td> 
         <td className = "align-right">{dishType(dish)}</td>
         <td className ="align-right">{(dish.pricePerServing * props.number).toFixed(2)}</td>
         </tr>;

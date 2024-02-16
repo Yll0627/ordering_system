@@ -7,7 +7,8 @@ import{ makeRouter } from "/src/vuejs/VueRoot.jsx"
 
 import { reactive } from "vue";
 const reactiveModel= reactive(model);
-
+// Perform the initial search
+reactiveModel.doSearch({}); 
 
 // then use reactiveModel instead of model below!
 

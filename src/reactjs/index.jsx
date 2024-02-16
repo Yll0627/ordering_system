@@ -3,11 +3,13 @@ import "/src/style.css"
 // (1) ------------ application state (model) -----------
 import { model } from '/src/DinnerModel.js';
 
-// uncomment to make the app update when the model changes:
 
 import { observable, configure } from "mobx";
 configure({ enforceActions: "never", });  // we don't use Mobx actions
 const reactiveModel= observable(model);
+// Perform the initial search
+reactiveModel.doSearch({});
+
 
 // then use reactiveModel instead of model below!
 

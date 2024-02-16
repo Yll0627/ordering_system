@@ -31,9 +31,8 @@ export function DetailsView(props) {
         window.location.hash="#search"
     }
 
-    function cancelACB(){
-        window.location.hash="#search"
-
+    function backToSearchACB(){
+        window.location.hash="#/search"
     }
 
     return(
@@ -67,7 +66,7 @@ export function DetailsView(props) {
             <p></p>
             <div>
             <button class="button" disabled = {props.isDishInMenu} onClick = {addMenuACB}>Add to menu</button>
-            <button class="button" onClick = {cancelACB}>Cancel</button>
+            <button class="button" onClick = {backToSearchACB}>Cancel</button>
             </div>
         </div>
        
