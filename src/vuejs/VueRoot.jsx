@@ -6,6 +6,7 @@ import "/src/firebaseModel.js"
 import "/src/style.css"
 import { createRouter, createWebHashHistory, RouterView} from "vue-router";
 
+
 function makeRouter(model){
     const router=  createRouter({ 
     history: createWebHashHistory(),

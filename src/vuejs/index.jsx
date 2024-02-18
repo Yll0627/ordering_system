@@ -33,3 +33,4 @@ app.mount('#root'); // mounts the app in the page DIV with the id "root"
 // ------ for debug purposes ----------
 //window.myModel= model;             // make the model available in the Console
 window.myModel= reactiveModel;  
+
