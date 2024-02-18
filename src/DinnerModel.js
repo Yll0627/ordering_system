@@ -6,7 +6,7 @@
 import resolvePromise from "./resolvePromise.js";
 import { searchDishes,getDishDetails } from "./dishSource.js";
 
-const model = {  
+export  const model = {  
 
     numberOfGuests: 2,
     dishes: [],
@@ -84,4 +84,4 @@ const model = {
     // more methods will be added here, don't forget to separate them with comma!
 };
 
-export {model};
+export default {model}
