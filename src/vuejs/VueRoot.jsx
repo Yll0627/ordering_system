@@ -2,6 +2,7 @@ import { Summary }  from "./summaryPresenter.jsx";
 import { Sidebar }  from "./sidebarPresenter.jsx";
 import {Search} from "./searchPresenter.jsx"
 import {Details} from "./detailsPresenter.jsx"
+import "/src/firebaseModel.js"
 import "/src/style.css"
 import { createRouter, createWebHashHistory, RouterView} from "vue-router";
 
