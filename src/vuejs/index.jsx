@@ -35,5 +35,5 @@ app.mount('#root'); // mounts the app in the page DIV with the id "root"
 //window.myModel= model;             // make the model available in the Console
 window.myModel= reactiveModel;  
 
-connectToFirebase(model,watch);
+connectToFirebase(reactiveModel,watch);
 
