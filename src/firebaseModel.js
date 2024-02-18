@@ -88,6 +88,7 @@ function readFromFirebase(model){
               })     
 }
 
+
 function connectToFirebase(model, watchFunction){
     readFromFirebase(model).then(() => {
 

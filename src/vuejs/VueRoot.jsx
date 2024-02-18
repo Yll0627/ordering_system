@@ -7,6 +7,7 @@ import "/src/style.css"
 import { createRouter, createWebHashHistory, RouterView} from "vue-router";
 
 
+
 function makeRouter(model){
     const router=  createRouter({ 
     history: createWebHashHistory(),
@@ -20,11 +21,19 @@ function makeRouter(model){
     }
 
 function VueRoot(props){  
-    return (<div class="flexParent">
-                <div class="sidebar"><Sidebar model={props.model} /></div>
-                <div class="mainContent"><RouterView  router={makeRouter(props.model)}/></div>
-            </div>
-           );
+
+// TW 3.4.2
+   if(!props.model.ready)
+   {
+    return(<div><img src = "https://brfenergi.se/iprog/loading.gif" alt= "Loading"/></div>);
+   }
+
+   
+   return (<div class="flexParent">
+   <div class="sidebar"><Sidebar model={props.model} /></div>
+   <div class="mainContent"><RouterView  router={makeRouter(props.model)}/></div>
+   </div>
+);
 }
 
 
