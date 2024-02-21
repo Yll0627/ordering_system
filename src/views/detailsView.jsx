@@ -17,7 +17,7 @@ export function DetailsView(props) {
 
     function dishDataCB(props){
         return(
-            <div class="align-right">
+            <div>
                 <th>Price: {props.dishData.pricePerServing} </th> 
             <div>
                 <th> For {props.guests} guests: {(props.guests * props.dishData.pricePerServing).toFixed(2)}</th>
@@ -36,13 +36,17 @@ export function DetailsView(props) {
     }
 
     return(
-        
 
         <div class="alignCenter">
             <div>
                 <img class = "imageDetail" src={props.dishData.image}></img>
-                <h2>{props.dishData.title}</h2>
+                <div class="detailbutton">
+                <button class="addtomenu" disabled = {props.isDishInMenu} onClick = {addMenuACB}>Add to menu</button>
+                 <button class="cancelbutton" onClick = {backToSearchACB}>Cancel</button>
+                 </div>
+                <div style="width:560px"><h2>{props.dishData.title}</h2> </div>  
                 {dishDataCB(props)} 
+               
             </div>
         
             <div>
@@ -64,10 +68,6 @@ export function DetailsView(props) {
         <div>{props.dishData.instructions}</div>
         <span ><a href={props.dishData.sourceUrl}> More information</a></span>
             <p></p>
-            <div>
-            <button class="button" disabled = {props.isDishInMenu} onClick = {addMenuACB}>Add to menu</button>
-            <button class="button" onClick = {backToSearchACB}>Cancel</button>
-            </div>
         </div>
        
     </div>

@@ -13,7 +13,12 @@ export function SearchFormView(props) {
                 {props.dishTypeOptions.map(selecting)}
             </select>
             <button onClick={searchACB} >Search</button>
-            <button onClick ={summaryACB}>Summary</button>
+            <button onClick ={summaryACB} class="summeryButton">
+                Summary
+                <div class="arrow-wrapper">
+                <div class="arrow"></div>
+                </div>
+                </button>
             
         </div>
         

@@ -10,19 +10,23 @@ export function SearchResultsView(props) {
             props.chosenDish(dish);
             window.location.hash="#details"
         }
-        return(
+        return(  
+           <div class="cardArray">
+            <div class="card" onClick={searchResultACB} key = {dish.id} >
             <span onClick={searchResultACB} key = {dish.id} className="searchResult">
                     <img className="imageArray" src={dish.image} height="100"></img>
                     <div>
-                    <div className="alignCenter">{dish.title}</div>
+                    <div className="cardTitle">{dish.title}</div>
                     </div>
                 </span>
+                </div>
+            </div>
         )
     } 
     
     
     return(
-        <div>{props.searchResults.map(returnResultsCB)} </div>
+        <div style="margin:3em" >{props.searchResults.map(returnResultsCB)} </div>
      );
     
     }

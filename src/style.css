@@ -3,6 +3,10 @@
 .debug {
     padding: 3px;
 }
+html{
+    background-color: rgb(240, 243, 238);
+    height: 100%;
+}
 
 .align-right {
     text-align: right;
@@ -60,30 +64,48 @@
 .flexParent{ 
     display:flex;
     flex-direction:row;
-    margin: 8px;
 }
 
 
 .sidebar{
-    flex:0.2;
-    margin-right: 6px;
-    padding: 6px;
-    border-style: solid;
-    background-color:rgb(220, 220, 220);
+    flex:0.3;
+    padding: 20px;
+    margin-right: 10px;
+    background-color:#124d2b;
+    color: white;
+    box-shadow: rgba(0, 10, 0, 0.27) 0 4px 10px;
+    border-radius: 0.9375em;
+}
+.sidebarTable{
+    margin-top: 1.25em;
+    td{
+        height: 80px;
+    }
+}
+.yourOrder{
+    font-weight: 800; 
+    font-size:  20px;;
+}
+.orderConp{
+    border-top: 1px solid #ddd; 
+    margin-top:0.625em; 
+    padding-top: 1.25em;
 }
 
 .mainContent{
-    flex:0.8;
+    flex:0.7;
     display:flex;
     flex-direction:column;
     width: 100%;
+    padding: 20px;
     justify-content: center;
-    border-style: solid; 
+    background-color: white;
+    border-radius: 0.9375em;
+    box-shadow: rgba(0, 10, 0, 0.27) 0 4px 10px;
 }
 
 .imageDetail{
     width: 560px;  
-     
   }
 
 .info{
@@ -91,10 +113,6 @@
     margin-left: auto;
     text-align: justify;
     margin-right: auto;
-}
-
-.button{
-    margin-right: 12px;
 }
 
 
@@ -112,6 +130,318 @@
     }
 }
 
+.orderlink{
+    color:rgb(240,255,240);
+}
+.orderlink:hover{
+    color:rgb(120,138,120);
+}
+.guest{
+    display: inline-block;
+}
+/*searchResult img */
+
+.cardArray{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    float: left;
+    width: 1%;
+    min-width: 160px;
+    margin: 1.25em;
+}
+.card{
+    display: flex;
+    max-width: 1024px;
+    position: relative;
+    width: 160px;
+    height: 200px;
+    padding: .6em;
+    background: #f5f5f5;
+    overflow: visible;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.cardTitle {
+    padding-top: 0.625em;
+    font-weight: 600;
+    font-size: .9em;
+    padding-bottom: auto;
+   }
+
+.card:hover {
+  color: white;
+  background-color: #124d2b;
+}  
+
+/* backtosearchButton */
 .backToSearchButton{
     float:right;
+    appearance: none;
+    background-color: transparent;
+    border: 0.125em solid #2e794f;
+    border-radius: 0.9375em;
+    box-sizing: border-box;
+    color: #2e794f;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: normal;
+    margin: 0;
+    min-height: 3.75em;
+    min-width: 0;
+    outline: none;
+    padding: 0.6em 1.3em;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+}
+
+.backToSearchButton:disabled {
+ pointer-events: none;
+}
+
+.backToSearchButton:hover {
+ color: #fff;
+ background-color: #2e794f;
+ box-shadow: rgba(0, 10, 0, 0.25) 0 4px 10px;
+ transform: translateY(-2px);
+}
+
+.backToSearchButton:active {
+ box-shadow: none;
+ transform: translateY(0);
+}
+
+
+
+/* RemoveButton*/
+.removeButton{
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: 0.3s;
+    background-color: #2e794f 60%;
+    
+}
+
+.sign {
+    width: 100%;
+    transition-duration: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sign svg {
+    width: 14px;
+  }
+  
+  .sign svg path {
+    fill: #2e794f;
+  }
+  /* text */
+  .text {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: #2e794f;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition-duration: 0.3s;
+  }
+
+  .removeButton:hover {
+    width: 105px;
+    background:#2e794f;
+    border-radius: 40px;
+    transition-duration: 0.3s;
+  }
+  .removeButton:hover .sign {
+    width: 30%;
+    transition-duration: 0.3s;
+    padding-left: 2px;
+  }
+  .removeButton:hover .sign svg path{
+   fill:white;
+  }
+
+
+  /* hover effect button's text */
+.removeButton:hover .text {
+    opacity: 1;
+    width: 70%;
+    color: white;
+    transition-duration: 0.3s;
+    padding-right: 2px;
+  }
+  /* button click effect*/
+  .removeButton:active {
+    transform: translate(2px, 2px);
+  }
+
+
+  /*summeryButton*/
+  .summeryButton{
+    float:right;
+    --primary-color: rgb(240,245,240);
+    --secondary-color:#2e794f;
+    --hover-color: #ecf2f0;
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 50px;
+    color: var(--secondary-color);
+    padding: 1em 1.8em;
+    background: var(--primary-color);
+    display: flex;
+    transition: 0.2s;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+  }
+  .summeryButton .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .summeryButton .arrow {
+    margin-top: 1px;
+    width: var(--arrow-width);
+    background: var(--primary-color);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;
+  }
+  
+  .summeryButton .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid var(--secondary-color);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
+  }
+  
+  .summeryButton:hover {
+    background-color: var(--hover-color);
+    color:#124d2b;
+  }
+  
+  .summeryButton:hover .arrow {
+    background: var(--secondary-color);
+  }
+  
+  .summeryButton:hover .arrow:before {
+    right: 0;
+  }
+  
+
+  .detailbutton{
+    display: flex;
+   
+  }
+  /*addtomenu*/
+  .addtomenu{
+    margin-right: 1.25em;
+    appearance: none;
+    background-color: #2e794f;
+    border: 0.125em solid #2e794f;
+    border-radius: 0.9375em;
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: normal;
+    min-height: 3.75em;
+    min-width: 0;
+    outline: none;
+    padding: 0.6em 1.3em;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+}
+
+.addtomenu:disabled {
+ pointer-events: none;
+}
+
+.addtomenu:hover {
+ color: #fff;
+ background-color: #2e794f;
+ box-shadow: rgba(0, 10, 0, 0.25) 0 4px 10px;
+ transform: translateY(-2px);
+}
+
+.addtomenu:active {
+ box-shadow: none;
+ transform: translateY(0);
+}
+
+
+/*cancelbutton*/
+.cancelbutton{
+    appearance: none;
+    background-color: transparent;
+    border: 0.125em solid #2e794f;
+    border-radius: 0.9375em;
+    box-sizing: border-box;
+    color: #2e794f;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: normal;
+    margin: 0;
+    min-height: 3.75em;
+    min-width: 0;
+    outline: none;
+    padding: 0.6em 1.3em;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+}
+
+.cancelbutton:disabled {
+ pointer-events: none;
+}
+
+.cancelbutton:hover {
+ background-color: rgb(239,242,239);
+ box-shadow: rgba(0, 10, 0, 0.25) 0 4px 10px;
+ transform: translateY(-2px);
+}
+
+.cancelbutton:active {
+ box-shadow: none;
+ transform: translateY(0);
 }
