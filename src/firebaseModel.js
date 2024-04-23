@@ -3,16 +3,9 @@ import {  getMenuDetails } from "/src/dishSource.js";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get, set} from "/src/teacherFirebase.js";
 import {firebaseConfig} from "/src/firebaseConfig.js";
-import DinnerModel from "./DinnerModel";
 const app= initializeApp(firebaseConfig)
 const db= getDatabase(app)
 
-
-
-// Add relevant imports here 
-// TODO
-
-// Initialise firebase app, database, ref
 
 const PATH="dinnerModel16";
 const rf= ref(db, PATH);
@@ -26,26 +19,30 @@ const rf= ref(db, PATH);
             {id:42, title:"dummy2"}]
    })) */
 
+
+/* Return an object with the model number of guests, 
+an array of the dish IDs, and the current dish ID. */
 function modelToPersistence(model){
-    const numberOfGuests = model.numberOfGuests;
-
-    const dishIds = model.dishes.map(dish => dish.id).sort((a, b) => a - b);
-  
-    const currentDishId = model.currentDishId;
-  
-    return {
-      numberOfGuests: numberOfGuests, 
-      dishes: dishIds,    
-      currentDishId: currentDishId 
-}
+    const modelPersistence=  {
+        numberOfGuests : model.numberOfGuests,
+        dishes: model.dishes.map(dishtransformerCB).sort(),
+        currentDishId : model.currentDishId,
+      }
+      return modelPersistence;
 }
 
+    function dishtransformerCB(dish){
+    return dish.id;
+    }
+
+
+// get the object from the cloud and return promise
 function persistenceToModel(dataFromFirebase, model){
 
     const defaultGuests = 2;
     const defaultCurrentDishId = null;
     
-    const safeData = dataFromFirebase && typeof dataFromFirebase === 'object' ? dataFromFirebase : {};
+    const safeData = dataFromFirebase && typeof dataFromFirebase === 'object' ? dataFromFirebase : {};//dataFromFirebase exists and is an object, otherwise, it is assigned an empty object
  
     const numberOfGuests = safeData.numberOfGuests || defaultGuests;
     model.setNumberOfGuests(numberOfGuests);
@@ -55,23 +52,24 @@ function persistenceToModel(dataFromFirebase, model){
         model.setCurrentDishId(currentDishId);
     }
 
+    // work when the firebase database is empty
     if (safeData.dishes && Array.isArray(safeData.dishes) && safeData.dishes.length > 0) {
         
-        return getMenuDetails(safeData.dishes).then(dishes => {
-           
-            model.dishes = dishes;
-            return "returned"; 
+        //waiting until all the dishes are retrieved. 
+        return getMenuDetails(safeData.dishes).then(function transDishBC(dishes) {
+            model.dishes = dishes; 
+            return "returned";
         });
+
     } else {
-        
         model.dishes = [];
-        return Promise.resolve("returned");
+        return Promise.resolve("returned"); //return promise
     }
 }
 
 
 function saveToFirebase(model){
-    if (model.ready) {
+    if (model.ready) { //persists the result after finish reading to avoid infinite loops
         const dataToSave = modelToPersistence(model);
         set(rf, dataToSave)
     }
@@ -90,22 +88,22 @@ function readFromFirebase(model){
 
 
 function connectToFirebase(model, watchFunction){
-    readFromFirebase(model).then(() => {
-
+    readFromFirebase(model).then(function toReadBC() {
         model.ready = true;
     });
 
-
-    const unsubscribe = watchFunction(() => {
-
-        return [model.numberOfGuests, model.dishes.map(dish => dish.id), model.currentDishId];
-    }, () => {
-
-        saveToFirebase(model);
+    // side effect
+    const unsubscribe = watchFunction(function checkABC1() {    //to check whether the change is relevant for the side effect.
+        return [model.numberOfGuests, model.dishes.map(function mapdishID(dish) {
+            return dish.id;
+            }), model.currentDishId];
+    }, 
+    function sideEffectACB2 () {
+        saveToFirebase(model); //saves the current state of the model to synchronize that state with Firebade
     });
 
     return unsubscribe;
 }
 
-// Remember to uncomment the following line:
+
 export { connectToFirebase, modelToPersistence, persistenceToModel, saveToFirebase, readFromFirebase }

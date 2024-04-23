@@ -74,29 +74,3 @@ export function DetailsView(props) {
     )
 }
 
-/*
-export function DetailsView(props){
-    return(
-        <div className="detailInfo">
-            <image className="imageDetail" src={props.dishData.image} height='200'></image>
-            <h2 className="titleCenter">{props.dishData.title}</h2>
-            <div>
-                <p>Price:{props.dishData.pricePerServing}</p> 
-                <p></p>
-                <p>For {props.guests} guests {(props.guests * props.dishData.pricePerServing).toFixed(2)}</p>
-            </div>
-            <br></br>
-
-            
-            
-            <button onClick={clicktoAdd}>Add to Menu</button>
-
-        </div>
-        
-    )
-    function clicktoAdd(){
-        props.ddToMenu();
-    }
-
-}
-*/
